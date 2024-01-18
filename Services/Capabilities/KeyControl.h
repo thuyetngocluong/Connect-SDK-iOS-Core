@@ -57,5 +57,6 @@
 - (void) homeWithSuccess:(SuccessBlock)success failure:(FailureBlock)failure;
 
 - (void) sendKeyCode:(NSUInteger)keyCode success:(SuccessBlock)success failure:(FailureBlock)failure;
+- (void) sendKeyString:(NSString*)keyString success:(SuccessBlock)success failure:(FailureBlock)failure;
 
 @end

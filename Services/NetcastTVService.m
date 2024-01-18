@@ -1816,6 +1816,10 @@ NSString *lgeUDAPRequestURI[8] = {
     } failure:failure];
 }
 
+- (void)sendKeyString:(NSString *)keyString success:(SuccessBlock)success failure:(FailureBlock)failure {
+    
+}
+
 #pragma mark - Mouse
 
 - (id <MouseControl>)mouseControl

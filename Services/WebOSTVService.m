@@ -1516,6 +1516,26 @@
     [self sendMouseButton:WebOSTVMouseButtonRight success:success failure:failure];
 }
 
+- (void)sendKeyString:(NSString *)keyString success:(SuccessBlock)success failure:(FailureBlock)failure
+{
+    if (self.mouseSocket)
+    {
+        [self.mouseSocket sendString:keyString];
+
+        if (success)
+            success(nil);
+    } else
+    {
+        [self.mouseControl connectMouseWithSuccess:^(id responseObject)
+        {
+            [self.mouseSocket sendString:keyString];
+
+            if (success)
+                success(nil);
+        } failure:failure];
+    }
+}
+
 - (void)okWithSuccess:(SuccessBlock)success failure:(FailureBlock)failure
 {
     if (self.mouseSocket)
